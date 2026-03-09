@@ -14,11 +14,11 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
-          username: ${{ secrets.Docker_Username }}  # Modifié pour correspondre
-          password: ${{ secrets.docker_password }}  # Modifié pour correspondre
+          username: ${{ secrets.DOCKER_USERNAME }}  # ✓ Correct
+          password: ${{ secrets.DOCKER_PASSWORD }}  # ✓ Correct
 
       - name: Build Docker Image
-        run : docker build -t ${{ secrets.Docker_Username }}/flask-app:v2 .  # Modifié aussi ici
+        run : docker build -t ${{ secrets.DOCKER_USERNAME }}/flask-app:v2 .
         
       - name: Push Docker Image
-        run : docker push ${{ secrets.Docker_Username }}/flask-app:v2  # Modifié aussi ici
+        run : docker push ${{ secrets.DOCKER_USERNAME }}/flask-app:v2
